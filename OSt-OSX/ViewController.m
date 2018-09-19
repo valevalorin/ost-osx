@@ -19,6 +19,8 @@ AXUIElementRef _systemWide;
     // Do any additional setup after loading the view.
     NSLog(@"Yoooooo");
     _systemWide = AXUIElementCreateSystemWide();
+    
+    // Shpue, we need to run this VVVVVV every 30ms 
     [self updateCurrentApplication];
 }
 
