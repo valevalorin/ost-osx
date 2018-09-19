@@ -16,6 +16,7 @@
     NSArray *attrNames;
     
     AXUIElementCopyAttributeNames(element, (void *)&attrNames);
+    AXUIElementCopyAttributeValue(element, attribute, (void *)&result);
     
     return result;
 }

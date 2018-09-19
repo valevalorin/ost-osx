@@ -11,19 +11,17 @@
 
 @implementation ViewController
 
-AXUIElementRef _systemWide;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     // Do any additional setup after loading the view.
-    NSLog(@"Yoooooo");
-    _systemWide = AXUIElementCreateSystemWide();
+    NSLog(@"Initializing Current Application Polling");
     
-    // Shpue, we need to run this VVVVVV every 30ms 
-    [self updateCurrentApplication];
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
+                                                        selector:@selector(appChanged:)
+                                                        name:NSWorkspaceDidActivateApplicationNotification
+                                                        object:nil];
 }
-
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
@@ -31,20 +29,16 @@ AXUIElementRef _systemWide;
     // Update the view, if already loaded.
 }
 
-- (void) updateCurrentApplication {
-    // get the currently active application
-    AXUIElementRef _app = (__bridge AXUIElementRef) [CurrentAppData
-                                   valueOfExistingAttribute:kAXFocusedApplicationAttribute
-                                   ofUIElement:_systemWide];
+- (void) appChanged:(NSNotification *)notification {
+    NSDictionary *userInfo = [notification userInfo];
+    NSRunningApplication *app = userInfo[@"NSWorkspaceApplicationKey"];
+    NSString *executableUrl = [[app executableURL] absoluteString];
+    NSRange range = [executableUrl rangeOfString:@"/" options:NSBackwardsSearch];
+    NSString *processName = [executableUrl substringFromIndex:range.location + 1];
+    NSLog(@"data == %@", processName);
     
-    // Get the window that has focus for this application
-    AXUIElementRef _window = (__bridge AXUIElementRef)[CurrentAppData
-                                     valueOfExistingAttribute:kAXFocusedWindowAttribute
-                                     ofUIElement:_app];
+    //Call hook agent executable with 'processName' as it's only argument
     
-    NSString* appName = [CurrentAppData descriptionOfValue:_window
-                                              beingVerbose:TRUE];
-    NSLog(@"%@", appName);
 }
 
 
