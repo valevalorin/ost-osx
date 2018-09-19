@@ -12,6 +12,8 @@
 		CE19054C215010B700362FC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE19054B215010B700362FC6 /* Assets.xcassets */; };
 		CE19054F215010B700362FC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE19054D215010B700362FC6 /* Main.storyboard */; };
 		CE190552215010B700362FC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE190551215010B700362FC6 /* main.m */; };
+		CE19055B2150185C00362FC6 /* CurrentAppData.m in Sources */ = {isa = PBXBuildFile; fileRef = CE19055A2150185C00362FC6 /* CurrentAppData.m */; };
+		CE19056021516ED000362FC6 /* UIElementUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CE19055E21516ED000362FC6 /* UIElementUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,10 @@
 		CE190550215010B700362FC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE190551215010B700362FC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE190553215010B700362FC6 /* OSt_OSX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OSt_OSX.entitlements; sourceTree = "<group>"; };
+		CE1905592150185C00362FC6 /* CurrentAppData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentAppData.h; sourceTree = "<group>"; };
+		CE19055A2150185C00362FC6 /* CurrentAppData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentAppData.m; sourceTree = "<group>"; };
+		CE19055E21516ED000362FC6 /* UIElementUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIElementUtilities.m; sourceTree = "<group>"; };
+		CE19055F21516ED000362FC6 /* UIElementUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIElementUtilities.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,8 @@
 		CE190544215010B600362FC6 /* OSt-OSX */ = {
 			isa = PBXGroup;
 			children = (
+				CE19055F21516ED000362FC6 /* UIElementUtilities.h */,
+				CE19055E21516ED000362FC6 /* UIElementUtilities.m */,
 				CE190545215010B600362FC6 /* AppDelegate.h */,
 				CE190546215010B600362FC6 /* AppDelegate.m */,
 				CE190548215010B600362FC6 /* ViewController.h */,
@@ -66,6 +74,8 @@
 				CE190550215010B700362FC6 /* Info.plist */,
 				CE190551215010B700362FC6 /* main.m */,
 				CE190553215010B700362FC6 /* OSt_OSX.entitlements */,
+				CE1905592150185C00362FC6 /* CurrentAppData.h */,
+				CE19055A2150185C00362FC6 /* CurrentAppData.m */,
 			);
 			path = "OSt-OSX";
 			sourceTree = "<group>";
@@ -140,6 +150,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE19054A215010B600362FC6 /* ViewController.m in Sources */,
+				CE19055B2150185C00362FC6 /* CurrentAppData.m in Sources */,
+				CE19056021516ED000362FC6 /* UIElementUtilities.m in Sources */,
 				CE190552215010B700362FC6 /* main.m in Sources */,
 				CE190547215010B600362FC6 /* AppDelegate.m in Sources */,
 			);

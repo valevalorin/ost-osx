@@ -7,13 +7,19 @@
 //
 
 #import "ViewController.h"
+#import "CurrentAppData.h"
 
 @implementation ViewController
+
+AXUIElementRef _systemWide;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     // Do any additional setup after loading the view.
+    NSLog(@"Yoooooo");
+    _systemWide = AXUIElementCreateSystemWide();
+    [self updateCurrentApplication];
 }
 
 
@@ -21,6 +27,22 @@
     [super setRepresentedObject:representedObject];
 
     // Update the view, if already loaded.
+}
+
+- (void) updateCurrentApplication {
+    // get the currently active application
+    AXUIElementRef _app = (__bridge AXUIElementRef) [CurrentAppData
+                                   valueOfExistingAttribute:kAXFocusedApplicationAttribute
+                                   ofUIElement:_systemWide];
+    
+    // Get the window that has focus for this application
+    AXUIElementRef _window = (__bridge AXUIElementRef)[CurrentAppData
+                                     valueOfExistingAttribute:kAXFocusedWindowAttribute
+                                     ofUIElement:_app];
+    
+    NSString* appName = [CurrentAppData descriptionOfValue:_window
+                                              beingVerbose:TRUE];
+    NSLog(@"%@", appName);
 }
 
 
