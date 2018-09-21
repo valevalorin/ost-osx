@@ -1,0 +1,6 @@
+[submodule "ost-sound-agent"]
+	path = ost-sound-agent
+	url = https://github.com/valevalorin/ost-sound-agent.git
+[submodule "ost-hook-actor"]
+	path = ost-hook-actor
+	url = https://github.com/valevalorin/ost-hook-actor.git
